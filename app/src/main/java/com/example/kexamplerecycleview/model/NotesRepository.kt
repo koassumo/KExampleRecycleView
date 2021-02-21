@@ -7,19 +7,19 @@ object NotesRepository {
         Note(
             "Первая заметка",
             "lskdfjlksdfj dslfkjds dsfalkjalsdf sskdfj sdlfkjf sadfljk",
-            0xfff06292.toInt(),
+            0xFFAAD6A2.toInt(),
             false
             ),
         Note(
             "Вторая заметка",
             "ШЩЩЩШШ ммтмтмдымь ывдтьа зуцоцуцуо ваыиваы9овыа",
-            0xfff06292.toInt(),
+            0xFFDCA38B.toInt(),
             false
             ),
         Note(
             "Третья заметка",
             "ждл жлдждл жд лопоп ждлыва  ыолвдаав шуццуш лдлоыва ваыдлоывдло дывлао",
-            0xfff06292.toInt(),
+            0xFF81D4FA.toInt(),
             false
             ),
         Note(
