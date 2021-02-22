@@ -44,6 +44,14 @@ dependencies {
 //    implementation 'androidx.lifecycle:lifecycle-runtime:2.3.0'
 //    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
+    // Internet
+    def okHttp_vertion = '4.8.0'
+    def retrofit_vertion = '2.9.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_vertion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_vertion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_vertion"
+    implementation "com.squareup.okHttp3:okHttp:3.14.9"
+    implementation "com.squareup.okHttp3:loggin-interceptor:3.14.9"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
