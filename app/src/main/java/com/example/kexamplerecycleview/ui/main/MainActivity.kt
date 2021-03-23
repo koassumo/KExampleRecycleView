@@ -1,6 +1,8 @@
 package com.example.kexamplerecycleview.ui.main
 
 import android.os.Bundle
+import android.provider.Settings
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kexamplerecycleview.ApiHolder
@@ -47,8 +49,9 @@ class MainActivity : AppCompatActivity() {
 //            })
 
 
+        val imL = GladeImageLoader()
         // 1.1. ADAPTER создаем
-        mRVdapter = NotesRVAdapter()
+        mRVdapter = NotesRVAdapter(imL)
         // 1.2. передаем данные (которые забрали в моделе)
         mRVdapter.notes = NotesRepository.getNotes()
 

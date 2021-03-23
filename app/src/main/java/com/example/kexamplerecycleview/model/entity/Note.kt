@@ -17,6 +17,10 @@ class Note(
     @SerializedName ("id")
     var mText: String? = null,
 
+    @Expose
+    @SerializedName ("avatar_url")
+    val avatarUrl: String? = null,
+
     //var mDrawable: Drawable? = null,
     //var mColor: Int? = null,
     //var isChecked: Boolean = false

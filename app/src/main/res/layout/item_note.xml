@@ -21,7 +21,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/iv_avatar"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:scaleType="fitXY"
@@ -33,7 +33,7 @@
             android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/imageView"
+            android:layout_toEndOf="@id/iv_avatar"
             />
 
         <TextView
@@ -41,18 +41,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_title"
-            android:layout_alignBottom="@id/imageView"
+            android:layout_alignBottom="@id/iv_avatar"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_toStartOf="@+id/checkboxView"
-            android:layout_toEndOf="@id/imageView"
+            android:layout_toEndOf="@id/iv_avatar"
             android:textSize="16sp" />
 
         <CheckBox
             android:id="@+id/checkboxView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/imageView"
+            android:layout_alignBottom="@id/iv_avatar"
             android:layout_alignParentEnd="true"/>
 
     </RelativeLayout>

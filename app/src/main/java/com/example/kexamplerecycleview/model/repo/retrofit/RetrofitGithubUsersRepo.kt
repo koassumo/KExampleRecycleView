@@ -7,6 +7,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 
 data class RetrofitGithubUsersRepo(val api: IDataSource) : IGithubUsersRepo {
-    override fun getUsers() = api.getUsers().subscribeOn(Schedulers.io()).observeOn(
-        AndroidSchedulers.mainThread())
+    override fun getUsers() = api.getUsers()
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
 }
