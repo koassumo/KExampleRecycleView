@@ -30,9 +30,9 @@ class MainActivity : AppCompatActivity() {
 
 
         val anySingle: Single<List<Note>> = RetrofitGithubUsersRepo(ApiHolder().api).getUsers()
-        anySingle?.subscribe({ s ->
-            println(s)
-            mRVdapter.updateNote(s)
+        anySingle.subscribe({
+            println(it)
+            mRVdapter.updateNote(it)
         }, {
             println("onError: ${it.message}")
         })
@@ -55,10 +55,10 @@ class MainActivity : AppCompatActivity() {
         // 1.2. передаем данные (которые забрали в моделе)
         mRVdapter.notes = NotesRepository.getNotes()
 
-        // 1.3. накладываем адаптер на recycle
+        // 1.3. накладываем адаптер на recycle в xml
         rv_notes.adapter = mRVdapter
 
-        // 2.1. LAYOUT создаем (!!! можно Grid или любой) и 2.2. накладываем layout на recycler
+        // 2.1. LAYOUT создаем (!!! можно Grid или любой) и 2.2. накладываем layout на recycler в xml
         rv_notes.layoutManager = LinearLayoutManager(this)
 
         //mRVdapter.updateNote(NotesRepSecond.getNotes())
