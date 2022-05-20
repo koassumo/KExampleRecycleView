@@ -1,6 +1,5 @@
 package com.example.kexamplerecycleview.model.entity
 
-import android.graphics.drawable.Drawable
 import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

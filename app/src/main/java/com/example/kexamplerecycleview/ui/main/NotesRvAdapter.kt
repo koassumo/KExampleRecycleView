@@ -3,13 +3,14 @@ package com.example.kexamplerecycleview.ui.main
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.kexamplerecycleview.R
 import com.example.kexamplerecycleview.model.entity.Note
-import kotlinx.android.synthetic.main.item_note.view.*
 
-class NotesRvAdapter : RecyclerView.Adapter<NotesRvAdapter.ViewHolder> () {
+class NotesRvAdapter() : RecyclerView.Adapter<NotesRvAdapter.ViewHolder> () {
 
     var notes: List<Note> = listOf()
     set (value){
@@ -23,9 +24,9 @@ class NotesRvAdapter : RecyclerView.Adapter<NotesRvAdapter.ViewHolder> () {
     // Самих данных пока нет, только шаблон.
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         fun bind(note: Note) {
-            itemView.tv_title.text = note.mTitle
-            itemView.tv_text.text = note.avatarUrl
-            itemView.iv_avatar.load(note.avatarUrl)
+            itemView.findViewById<TextView>(R.id.tv_title).text = note.mTitle
+            itemView.findViewById<TextView>(R.id.tv_text).text = note.avatarUrl
+            itemView.findViewById<ImageView>(R.id.iv_avatar).load(note.avatarUrl)
             // На вход конструктор (?) берет переданную ItemView и разбираем ее на составные части
             // при этом предварительно найти все вьюшки (как в java) здесь не требуется,
             // (но - это расход ресурсов, поэтому нужно как-то закэшировать)

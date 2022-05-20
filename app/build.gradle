@@ -1,7 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
+    id("kotlin-parcelize")
+
 }
 
 android {
@@ -31,6 +32,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -43,6 +47,7 @@ dependencies {
 
 //    implementation 'androidx.lifecycle:lifecycle-runtime:2.3.0'
 //    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
 
     //RX
     implementation 'io.reactivex.rxjava3:rxjava:3.0.3'
