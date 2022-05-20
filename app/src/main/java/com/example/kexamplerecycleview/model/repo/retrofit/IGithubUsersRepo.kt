@@ -1,4 +1,4 @@
-package com.example.kexamplerecycleview.model.repo
+package com.example.kexamplerecycleview.model.repo.retrofit
 
 import com.example.kexamplerecycleview.model.entity.Note
 import io.reactivex.rxjava3.core.Single

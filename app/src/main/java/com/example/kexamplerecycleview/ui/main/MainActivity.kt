@@ -1,27 +1,24 @@
 package com.example.kexamplerecycleview.ui.main
 
 import android.os.Bundle
-import android.provider.Settings
-import android.widget.ImageView
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.kexamplerecycleview.ApiHolder
-import kotlinx.android.synthetic.main.activity_main.*
 import com.example.kexamplerecycleview.R
-import com.example.kexamplerecycleview.model.NotesRepSecond
-import com.example.kexamplerecycleview.model.NotesRepository
+import com.example.kexamplerecycleview.model.api.ApiHolder
 import com.example.kexamplerecycleview.model.entity.Note
 import com.example.kexamplerecycleview.model.repo.retrofit.RetrofitGithubUsersRepo
 import io.reactivex.rxjava3.core.Single
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
 
     //    если нужен MVVM - то можно забрать пару классов из master ветки git (МainViewModel и MainViewState)
-    //    lateinit var viewModel: MainViewModel
 
-    lateinit var mRVdapter: NotesRVAdapter
-    lateinit var uRepo: List<Note>
+    private val TAG = "MyActivity"
+    // 1. ADAPTER создаем
+    private val mRvAdapter: NotesRvAdapter by lazy { NotesRvAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,51 +26,22 @@ class MainActivity : AppCompatActivity() {
         //viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
 
+        // 2. На "rv в xml" накладываем layout ( можно Grid или любой)
+        rv_notes.layoutManager = LinearLayoutManager(this)
+        // 3. На "rv в xml" накладываем созданный в п.1 адаптер
+        rv_notes.adapter = mRvAdapter
+
+
+        // ВАРИАНТ 1. передаем данные (которые забрали в моделе) из сохраненных
+        // mRVdapter.notes = FakeNotesRepository.getNotes()
+
+        // ВАРИАНТ 2. передаем данные из retrofit request
         val anySingle: Single<List<Note>> = RetrofitGithubUsersRepo(ApiHolder().api).getUsers()
         anySingle.subscribe({
-            println(it)
-            mRVdapter.updateNote(it)
+            Log.i(TAG,"--------------------$it")
+            mRvAdapter.updateNote(it)
         }, {
             println("onError: ${it.message}")
         })
-
-//
-//        RetrofitGithubUsersRepo(ApiHolder().api).getUsers()
-//            .observeOn(mainThreadScheduler)
-//            .subscribe({ s ->
-//                println(s)
-//
-//                //mRVdapter.newNotes(NotesRepository.getNotes())
-//            }, {
-//                println("onError: ${it.message}")
-//            })
-
-
-        val imL = GladeImageLoader()
-        // 1.1. ADAPTER создаем
-        mRVdapter = NotesRVAdapter(imL)
-        // 1.2. передаем данные (которые забрали в моделе)
-        mRVdapter.notes = NotesRepository.getNotes()
-
-        // 1.3. накладываем адаптер на recycle в xml
-        rv_notes.adapter = mRVdapter
-
-        // 2.1. LAYOUT создаем (!!! можно Grid или любой) и 2.2. накладываем layout на recycler в xml
-        rv_notes.layoutManager = LinearLayoutManager(this)
-
-        //mRVdapter.updateNote(NotesRepSecond.getNotes())
-
-//        viewModel.getViewState().observe(this, Observer { value ->
-//            value?.let {
-//                adapter.notes = it.notes
-//            }
-//        })
     }
-
-
-
-
-
-
-
 }

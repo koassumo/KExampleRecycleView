@@ -1,7 +1,6 @@
 package com.example.kexamplerecycleview.model.repo.retrofit
 
 import com.example.kexamplerecycleview.model.api.IDataSource
-import com.example.kexamplerecycleview.model.repo.IGithubUsersRepo
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 

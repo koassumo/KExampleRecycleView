@@ -1,8 +1,8 @@
-package com.example.kexamplerecycleview.model
+package com.example.kexamplerecycleview.model.repo.fakerepo
 
 import com.example.kexamplerecycleview.model.entity.Note
 
-object NotesRepository {
+object FakeNotesRepository {
     private val notes: List<Note> = listOf(
         Note(
             "Первая заметка",

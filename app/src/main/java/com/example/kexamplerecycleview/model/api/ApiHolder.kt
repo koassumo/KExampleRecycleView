@@ -1,6 +1,5 @@
-package com.example.kexamplerecycleview
+package com.example.kexamplerecycleview.model.api
 
-import com.example.kexamplerecycleview.model.api.IDataSource
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
